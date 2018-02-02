@@ -1,0 +1,120 @@
+#####################################################################################################################
+#####################################################  Card Game ####################################################
+####################################################  --Group 6--  ##################################################
+#####################################################################################################################
+## C++ Group Project - AUTUMN - 2017
+## Members: 
+## Ajay Gopal Changarath
+## Anirudh Chandrachoodan
+## John Philip Parambil
+## Kishore Sukumaran
+## Stanislaw Adamczewski
+######################################################################################################################
+## Functionality: 
+## The game seeks the following input from the user: 
+## 	- total number of card sets to be used
+## 	- the total number of players.
+## The game then simulates a normal card game as follows
+##	- the first player puts a card matching the type or number on the top card
+## 	- the next player puts a card matching the above card and there on
+##	- in case a player doesn't have any matching card, a card is picked from the hidden deck
+## 	- first player to empty their card deck wins
+## 	- in case the hidden deck is empty, the played deck is shuffled and used as hidden deck and there on
+#######################################################################################################################
+
+1. Class Card (Declaration in Card.h and defenitions in Card.cpp)
+_________________________________________________________________
+_________________________________________________________________
+
+Card()
+------
+Default constructor of Card class
+
+Card(Suit suit, Value value)
+----------------------------
+Constructor used to set the type and value of a card. Example to set a card of Hearts of Six.
+
+Suit GetSuit()
+--------------
+To get which suit a card belongs to. Example if a card is Five of Hearts, this function returns Hearts.
+
+Value GetValue()
+----------------
+To get what value a card is of. Example if a card is Five of Hearts, this function returns Five.
+
+
+
+2. Class CardDeck (Declaration in CardDeck.h and defenitions in CardDeck.cpp)
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+CardDeck()
+----------
+Constructor to initialize a card deck. i.e. a list of cards.
+
+CardDeck(int num)
+-----------------
+Constructor to create a card deck that consists of total number of card decks based on the number of card sets the user selected(num).
+
+Card GetCard(int index)
+-----------------------
+Method to return a particular card that is in the position: index
+
+void addCard(Card card)
+-----------------------
+To add a particular 'card' into a deck
+
+void shuffleCards(int setNum)
+-----------------------------
+To shuffle a set of cards. Here 'setNum' is the number of card decks the user has provided. It is provided just so that the card deck is shuffled more.
+
+int findCardIndex(Card card)
+----------------------------
+To get the position of a 'card' in a player's card deck.
+
+void deleteCard(int index)
+--------------------------
+To delete a card from a player's card deck which is at position: 'index'
+
+int getNumberOfCards()
+----------------------
+To get the total number of cards in a player's card deck.
+
+Card getTopCard()
+-----------------
+To get the top card in a deck.
+
+void CardDeck::emptyCardDeck()
+------------------------------
+To clear a card deck.
+
+void moveAllCards(CardDeck deck2)
+---------------------------------
+To move all cards from played set to the hidden card deck. This is to be done once the hidden deck is empty and the played cards are to be shuffled and set as the hidden deck.
+
+
+
+3. Class GameStart (Declaration in GameStart.h and defenitions in GameStart.cpp)
+________________________________________________________________________________
+________________________________________________________________________________
+
+GameStart()
+-----------
+Constructor of the class GameStart
+
+void StartGame()
+----------------
+The method that performs the game implementation. It is in this method where all logic is being implemented to execute the game.
+
+char* enumSuit_to_string(Card::Suit value)
+------------------------------------------
+To return the text of the type of card. i.e. to print the card value as FIVE if the card is Five of Hearts
+
+char* enumValue_to_string(Card::Value value)
+--------------------------------------------
+To return the text of the value of card. i.i to print the card type as HEARTS if the card is Five of Hearts
+
+4. CardGame.cpp
+_______________
+_______________
+This is the entry point of the game.
